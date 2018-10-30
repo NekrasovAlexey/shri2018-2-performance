@@ -150,9 +150,9 @@ function setEvtListeners() {
 setEvtListeners();
 setRotate(0);
 
-document.querySelectorAll('.modal_close').forEach(b => {
+document.querySelectorAll('.modal_close').forEach(function (b) {
   b.onclick = function() {
-    document.querySelectorAll('.modal').forEach(m => {
+    document.querySelectorAll('.modal').forEach(function (m) {
       m.classList.toggle('modal_open', false);
       document.querySelector('body').style.overflow = 'auto';
     });
@@ -166,7 +166,7 @@ var TEMPS = {
   'hot': 30
 }
 
-document.querySelectorAll('.modal__filter-item_temp').forEach(l => {
+document.querySelectorAll('.modal__filter-item_temp').forEach(function (l) {
   l.onclick = function() {
     document.querySelector('.adjust-bar_theme_temp').value = TEMPS[this.id];
     document.querySelector('.modal_temp .modal__value').innerHTML = TEMPS[this.id] > 0 ? '+' + TEMPS[this.id] : TEMPS[this.id];
@@ -178,19 +178,19 @@ var showModal = function(selector) {
   document.querySelector('body').style.overflow = 'hidden';
 }
 
-document.querySelectorAll('.panel_temp').forEach(p => {
+document.querySelectorAll('.panel_temp').forEach(function (p) {
   p.onclick = function() {
     showModal('.modal_temp');
   }
 });
 
-document.querySelectorAll('.panel_lamp').forEach(p => {
+document.querySelectorAll('.panel_lamp').forEach(function (p) {
   p.onclick = function() {
     showModal('.modal_light');
   }
 });
 
-document.querySelectorAll('.panel_floor').forEach(p => {
+document.querySelectorAll('.panel_floor').forEach(function (p) {
   p.onclick = function() {
     showModal('.modal_knob');
   }
@@ -247,11 +247,11 @@ window.addEventListener('scroll', function() {
     document.querySelector('.stats').innerHTML = widths;
 });
 
-selectOptions.forEach(o => {
+selectOptions.forEach(function (o) {
   o.addEventListener('click', function(e) {
     document.querySelector('#' + e.target.dataset.group).checked = true;
 
-    selectOptions.forEach(opt => opt.classList.toggle('filter__select-item_checked', false));
+    selectOptions.forEach(function (opt) {opt.classList.toggle('filter__select-item_checked', false)});
     e.target.classList.toggle('filter__select-item_checked', true);
     popup.classList.toggle('filter__select-popup_open', false);
     selectButtonText.innerText = e.target.innerText;
